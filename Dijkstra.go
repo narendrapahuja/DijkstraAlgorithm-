@@ -1,20 +1,32 @@
-// A Golang program for Dijkstra's single source shortest path algorithm.
+// Project Group Members :
+// Shravya Donthisaram, Levi Barrantes, Zhiyan Yu, Dylan Jezo,  Drew Cavanaugh , and  Narendra Pahuja
+// Date Modified : 1st December, 2020
+
+// Dijkstra's algorithm is an algorithm for finding the shortest paths between nodes in a graph.
+// Below is the Golang program for Dijkstra's single source shortest path algorithm
+// with input as a graph in adjacent matrix representation and
+// output as the shortest distance from source to every vertex and the path.
 // This is the program written for adjacency matrix representation of the graph
+
 package main
 
+// Packages to format and use the maximum intial distances for the vertices
 import (
 	"fmt"
 	"math"
 )
 
-//number of vertices in the graph
+// Constant declared to represent the number of vertices in the graph
+// defining the number of vertices
 const (
 	V int = 9
 )
 
 // Function to find the find the vertex with minimum distance value,
-//from the set of vertices which are not yer included in tree of shortest pathxw
-func FindMinimumDistance(distance [V]int, vertices [V]bool) int {
+// from the set of vertices which are not yer included in tree of shortest path
+// Input parameters are distances and vertices
+// Returns the Minimum distance to a vertex
+func findMinimumDistance(distance [V]int, vertices [V]bool) int {
 
 	// Initialize min value
 	var min int = math.MaxInt64
@@ -29,30 +41,38 @@ func FindMinimumDistance(distance [V]int, vertices [V]bool) int {
 	return minIndex
 }
 
-//  Function to print the final result
+// Function to print the final result
+// Input parameters are distances and the path
+// Prints the Vertex, distance and the path
 
-func DisplayResult(distance [V]int, n int, path [V]int) {
+func displayResult(distance [V]int, path [V]int) {
 	fmt.Println(" Distance of vertex from the source:")
 	for i := 0; i < V; i++ {
-		fmt.Println("\n\nVertex ", i, "is at a distance of ", distance[i], "\nPath is")
-		Printpath(path, i)
+		fmt.Println("\n\nVertex ", i, "is at a distance of ", distance[i], "\n Shortest Path is")
+		printPath(path, i)
 	}
 
 }
 
-func Printpath(path [V]int, n int) {
+// Function to print the shortest path
+// Input parameters are path and the vertex
+// Prints the path
+
+func printPath(path [V]int, n int) {
 	// Base case if n is source
 	if path[n] == -1 {
 		fmt.Printf("%d %s", n, " ")
 		return
 	}
-	Printpath(path, path[n])
+	printPath(path, path[n])
 	fmt.Printf("%d %s", n, " ")
 
 }
 
 // Function for the implementation of Dijkstra's single source shortest path
 // algorithm for a graph represented using adjacency matrix
+// Input is the graph in the form of adjacent matrix and source vertex
+// Output
 
 func dijkstra(graph [][]int, source int) {
 	var distance [V]int  // Array for shortest distance from source to i
@@ -74,7 +94,7 @@ func dijkstra(graph [][]int, source int) {
 
 		// Considering the minimum distance vertex from the set of vertices not yet visited.
 		// u is always the source in first iteration
-		var u int = FindMinimumDistance(distance, vertices)
+		var u int = findMinimumDistance(distance, vertices)
 
 		// Updating the visited vertex as processed
 		vertices[u] = true
@@ -92,11 +112,11 @@ func dijkstra(graph [][]int, source int) {
 
 		}
 	}
-	// To print the distance array representing shortest paths from source to other vertices
-	DisplayResult(distance, V, path)
+	// To print the distance array representing shortest paths and distance from source to other vertices
+	displayResult(distance, path)
 }
 
-// creating the example graph using adjacent matrix representation
+// Creating the example graph using adjacent matrix representation
 
 func main() {
 	var graph = [][]int{{0, 4, 0, 0, 0, 0, 0, 8, 0},
