@@ -116,7 +116,7 @@ func dijkstra(graph [][]int, source int) {
 	displayResult(distance, path)
 }
 
-// Creating the example graph using adjacent matrix representation
+// Creating the graph using adjacent matrix representation
 
 func main() {
 	var graph = [][]int{{0, 4, 0, 0, 0, 0, 0, 8, 0},
@@ -128,6 +128,10 @@ func main() {
 		{0, 0, 0, 13, 0, 1, 0, 2, 5},
 		{8, 10, 0, 0, 0, 0, 2, 0, 6},
 		{0, 0, 1, 0, 0, 0, 5, 6, 0}}
+	
+// Considering source as 0
+	var source int = 0
+	
 
-	dijkstra(graph, 0)
+	dijkstra(graph, source)
 }
