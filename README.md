@@ -1,7 +1,7 @@
 # DijkstraAlgorithm-
 **Dijkstra Algorithm in Go**
 
-**Dijkstra's algorithm** is an algorithm for finding the shortest paths between nodes in a graph. This project is to implement Dijkstra's Algorithm in Go
+**Dijkstra's algorithm** is an algorithm for finding the shortest paths between nodes in a graph. This project is to implement Dijkstra's Algorithm in Go.This code will give shortest path to every other node along with the cost.
 
 **Project Members :** Shravya Donthisaram, Levi Barrantes, Zhiyan Yu, Dylan Jezo, Drew Cavanaugh and Narendra Pahuja
 
