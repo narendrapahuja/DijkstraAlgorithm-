@@ -48,7 +48,7 @@ func findMinimumDistance(distance [V]int, vertices [V]bool) int {
 func displayResult(distance [V]int, path [V]int) {
 	fmt.Println(" Distance of vertex from the source:")
 	for i := 0; i < V; i++ {
-		fmt.Println("\n\nVertex ", i, "is at a distance of ", distance[i], "\n Shortest Path is")
+		fmt.Println("\n\nVertex ", i, "is at a distance of ", distance[i], "\nShortest Path is")
 		printPath(path, i)
 	}
 
